@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Movie Ticket Booking System</title>
+</head>
+
+<body>
+
+    <h1>Online Movie Ticket Booking System</h1>
+
+    <script>
+
+        console.log("1. Checking Seat Availability...");
+
+        let seatsAvailable = true;
+
+        let booking = new Promise(function(resolve, reject) {
+
+            setTimeout(function() {
+
+                if (seatsAvailable) {
+
+                    resolve("2. Seats are Available");
+
+                } else {
+
+                    reject("No Seats Available.");
+
+                }
+
+            }, 2000);
+
+        });
+
+
+        // Promise Chaining
+        booking
+
+            // First .then()
+            .then(function(message) {
+
+                console.log(message);
+
+                // Process Payment
+                return new Promise(function(resolve, reject) {
+
+                    setTimeout(function() {
+
+                        console.log("3. Processing Payment...");
+
+                        resolve("4. Payment Successful");
+
+                    }, 2000);
+
+                });
+
+            })
+
+
+            // Second .then()
+            .then(function(message) {
+
+                console.log(message);
+
+                // Confirm Booking
+                return new Promise(function(resolve, reject) {
+
+                    setTimeout(function() {
+
+                        resolve("5. Booking Confirmed");
+
+                    }, 2000);
+
+                });
+
+            })
+
+
+            // Third .then()
+            .then(function(message) {
+
+                console.log(message);
+
+                // Generate Ticket
+                return new Promise(function(resolve, reject) {
+
+                    setTimeout(function() {
+
+                        resolve("6. Movie Ticket Generated");
+
+                    }, 2000);
+
+                });
+
+            })
+
+
+            // Fourth .then()
+            .then(function(message) {
+
+                console.log(message);
+
+                console.log("7. Enjoy Your Movie!");
+
+            })
+
+
+            // Handling Errors
+            .catch(function(error) {
+
+                console.log("Error:", error);
+
+            });
+
+    </script>
+
+</body>
+</html>
