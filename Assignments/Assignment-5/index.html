@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Exam Result System</title>
+
+    <style>
+        .result-btn {
+            font-size: 20px;
+            padding: 12px 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Online Exam Result</h1>
+
+    <!-- Button to check the result -->
+    <button onclick="checkResult()" class="result-btn">
+        Check Result
+    </button>
+
+    <!-- Area to display the result -->
+    <p id="result"></p>
+
+
+    <script>
+
+        // Promise
+        function calculateResult() {
+
+            return new Promise(function(resolve, reject) {
+
+                // setTimeout() creates a 3-second delay
+                setTimeout(function() {
+
+                    // resolve() means the Promise completed successfully
+                    resolve("Your result is ready! You scored 85 marks.");
+
+                }, 3000);
+
+            });
+        }
+
+
+        // async function allows us to use await
+        async function checkResult() {
+
+            // Show message immediately
+            document.getElementById("result").innerHTML =
+                "Calculating your result...";
+
+            // await waits for the Promise to complete
+            let result = await calculateResult();
+
+            // Display the result after 3 seconds
+            document.getElementById("result").innerHTML = result;
+
+        }
+
+    </script>
+
+</body>
+</html>
+
